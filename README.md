@@ -11,7 +11,7 @@
 3. write a function to detect how many pages of products in a category. So given the category url the function should output the number of pages
 4. Write a python script for extracting the following attributes in a product url, for example [https://www.chewy.com/pedigree-adult-complete-nutrition/dp/141438](https://www.chewy.com/pedigree-adult-complete-nutrition/dp/141438)
 
-#### **Task 1:**
+### **Task 1:**
 
 Script name : categories.py
 Extraction Fields : Categories, Total Products in perticular category, category url
@@ -28,7 +28,7 @@ Output File : Category-data.json
 `scrapy runspider categories.py -o category-data.json`
 
 
-#### Task 2 and 3:
+### Task 2 and 3:
 
 Script name : wetfoods.py
 Extraction Fields : Product Name, Product Url
@@ -47,7 +47,7 @@ Output File : productsurls.json
 *Note: Total Pages count is in the same script you can check out scripts line 18-20*
 
 
-#### Task 4:
+### Task 4:
 
 Script name: productdataspy.py
 
@@ -80,7 +80,7 @@ Output File : data.json
 `scrapy runspider productdataspy.py -o data.json `
 
 
-#### **Bonus:**
+### **Bonus🎁:**
 
 I have created scrapy project which extracts all the doog food data available on the site within few minitues.
 Path : `/dogfoodspy `
