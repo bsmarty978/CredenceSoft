@@ -14,6 +14,7 @@ class WetFoodSpy(CrawlSpider):
     )
 
     def parse_item(self, response):
+        
         #NOTE:Total Page Number
         total_page = response.xpath('//ul[@class="kib-pagination-new__list"]/li[last()]/a/text()').get()
         print(f'?>>>>>>>>>>>>>Total page{total_page}')
