@@ -9,4 +9,13 @@ import scrapy
 class DoogfoodspyItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    ProductName  = scrapy.Field()
+    Price  = scrapy.Field()
+    Description  = scrapy.Field()
+    Attributes  = scrapy.Field()
+    Brand  = scrapy.Field()
+    Brand_url = scrapy.Field()
+    ingredients  = scrapy.Field()
+    Key_Benefits  = scrapy.Field()
+    Guaranteed_Analysis  = scrapy.Field()
+    Images = scrapy.Field()

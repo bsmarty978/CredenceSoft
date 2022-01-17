@@ -1,6 +1,7 @@
 import scrapy
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
+from doogfoodspy.items import DoogfoodspyItem #NOTE:To Use IteamLoader
 
 
 class ChweyspySpider(CrawlSpider):
@@ -11,10 +12,11 @@ class ChweyspySpider(CrawlSpider):
 
     rules = (
         Rule(LinkExtractor(restrict_xpaths="//div[@class='ProductListingGrid_overlayWrapper__1QmQq']/div/div/div/a"), callback='parse_item', follow=True),
-        Rule(LinkExtractor(restrict_xpaths="//a[@aria-label='Next page']")),
+        # Rule(LinkExtractor(restrict_xpaths="//a[@aria-label='Next page']")),
     )
 
     def parse_item(self, response):
+        li = DoogfoodspyItem() #NOTE: TO USE ITEAMLOADER
         name = response.xpath("normalize-space(//div[@id='product-title']/h1/text())").get()
         descp = response.xpath("normalize-space((//article[@id='descriptions']//p)[1])").get()
         price = response.xpath("normalize-space(//p[@class='price']/span[1]/text())").get()
@@ -40,16 +42,31 @@ class ChweyspySpider(CrawlSpider):
             data_value = data.xpath("normalize-space(.//td[2])").get()
             analysis[data_name] = data_value
 
-        yield{
-            "ProductName" : name,
-            "Price" : price,
-            "Description" : descp,
-            "Attributes" : attributes,
-            "Brand" : brand,
-            "Brand_url": brand_url,
-            "ingredients" : ingredients,
-            "Key Benefits" : key_benefits,
-            "Guaranteed Analysis" : analysis,
-            "Images" : imgs
+        
+        # yield{
+        #     "ProductName" : name,
+        #     "Price" : price,
+        #     "Description" : descp,
+        #     "Attributes" : attributes,
+        #     "Brand" : brand,
+        #     "Brand_url": brand_url,
+        #     "ingredients" : ingredients,
+        #     "Key_Benefits" : key_benefits,
+        #     "Guaranteed_Analysis" : analysis,
+        #     "Images" : imgs
+        # }
 
-        }
+        li["ProductName"] = name
+        li["Price"] = price
+        li["Description"] = descp
+        li["Attributes"] = attributes
+        li["Brand"] = brand
+        li["Brand_url"]= brand_url
+        li["ingredients"] = ingredients
+        li["Key_Benefits"] = key_benefits
+        li["Guaranteed_Analysis"] = analysis
+        li["Images"] = imgs
+        yield li
+
+
+
