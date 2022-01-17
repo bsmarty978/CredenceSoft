@@ -114,4 +114,4 @@ Output File : allfoods.json
 
 📱📞
 
-For any quries you can reach to me you can find contact information on my Github Profile
+For any quries you can reach me via contact information available on my GitHub Profile.
